@@ -1,11 +1,11 @@
-require("@nomiclabs/hardhat-waffle");
-require("hardhat-contract-sizer");
-require("hardhat-gas-reporter");
+require('@nomiclabs/hardhat-waffle');
+require('hardhat-contract-sizer');
+require('hardhat-gas-reporter');
 require('solidity-coverage');
-require("@nomiclabs/hardhat-etherscan");
+require('@nomiclabs/hardhat-etherscan');
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
-task("accounts", "Prints the list of accounts", async () => {
+task('accounts', 'Prints the list of accounts', async () => {
   const accounts = await ethers.getSigners();
 
   for (const account of accounts) {
@@ -22,83 +22,95 @@ task("accounts", "Prints the list of accounts", async () => {
 module.exports = {
   solidity: {
     compilers: [
-     {
-        version: "0.8.12",
+      {
+        version: '0.8.12',
         settings: {
           optimizer: {
             enabled: true,
-            runs: 200,
-          },
-        },
-      },
-
+            runs: 200
+          }
+        }
+      }
     ],
-    overrides: {},
+    overrides: {}
   },
   networks: {
     hardhat: {
       allowUnlimitedContractSize: true,
-      forking: {
-        url: process.env.ALCHEMY_URL,
-        blockNumber: 12545000,
-      },
-      gasPrice:1000000000
+      gasPrice: 1000000000
     },
     mainnet: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     ropsten: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     rinkeby: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     mumbai: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     moonbase: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     polygon: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     bsc: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
-    energyweb:{
+    energyweb: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
     },
     moonriver: {
       url:
-        process.env.NETWORK_RPC_URL !== undefined ? process.env.NETWORK_RPC_URL : "",
+        process.env.NETWORK_RPC_URL !== undefined
+          ? process.env.NETWORK_RPC_URL
+          : '',
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-    },
-
+        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : []
+    }
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY
@@ -106,11 +118,11 @@ module.exports = {
   contractSizer: {
     alphaSort: true,
     runOnCompile: true,
-    disambiguatePaths: false,
+    disambiguatePaths: false
   },
   gasReporter: {
     currency: 'USD',
     gasPrice: 60,
-    coinmarketcap: process.env.COINMARKETCAP_API_KEY,
+    coinmarketcap: process.env.COINMARKETCAP_API_KEY
   }
 };
